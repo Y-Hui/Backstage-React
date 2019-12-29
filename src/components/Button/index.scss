@@ -1,0 +1,48 @@
+[data-vision-art].art-button {
+  position: relative;
+  padding: 0 16px;
+  min-width: 94px;
+  height: 36px;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  outline: none;
+  transition: filter 0.12s;
+  user-select: none;
+  cursor: pointer;
+  &:hover {
+    filter: opacity(0.8);
+    transition: filter 0.12s;
+  }
+  &:active {
+    filter: opacity(1) brightness(0.94);
+    transition: filter 0.12s;
+  }
+  &--blue {
+    color: #fff;
+    background-color: #3864ff;
+  }
+  &--red {
+    color: #fff;
+    background-color: #ff3a6e;
+  }
+  &--yellow {
+    color: #fff;
+    background-color: #ffd324;
+  }
+  &--gray {
+    color: #f7f7f7;
+    background-color: #b9b9b9;
+  }
+  &--round {
+    border-radius: 30px;
+  }
+}
+
+@keyframes ripple {
+  100% {
+    -webkit-transform: scale(12);
+    transform: scale(12);
+    background-color: transparent;
+  }
+}
