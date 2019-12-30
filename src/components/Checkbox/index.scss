@@ -61,8 +61,8 @@
       transition: transform .2s ease-in;
     }
     &::after {
-      animation: zoomInIcon .3s ease-in forwards;
-      animation-delay: .2s;
+      animation: zoomInIcon .2s ease-in forwards;
+      animation-delay: .1s;
     }
   }
 }
