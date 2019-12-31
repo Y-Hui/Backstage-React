@@ -9,10 +9,8 @@ function App() {
     <div className="app">
       <Sidebar />
       <AppContent>
-        <>
         <Navbar />
         <Router />
-        </>
       </AppContent>
     </div>
   )

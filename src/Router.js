@@ -24,16 +24,12 @@ function Router() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route
-          path="/"
-          exact
-          render={() => (
-            <Redirect to="/home" />
-          )}
-        />
         {
-          routerModule.map((route) => <RouterView key={route.path} {...route} />)
+          routerModule.map((route) => (
+            <RouterView key={route.path} {...route} />
+          ))
         }
+        <Redirect from="/" to="/home" />
       </Switch>
     </BrowserRouter>
   )

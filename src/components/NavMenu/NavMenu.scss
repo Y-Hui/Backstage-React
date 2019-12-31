@@ -10,6 +10,14 @@
   &:hover {
     background-color: #f7f7f7;
   }
+  &--active &__arrow {
+    &::before {
+      transform: rotate(-45deg);
+    }
+    &::after {
+      transform: rotate(45deg);
+    }
+  }
   &__arrow {
     position: absolute;
     top: 0;
@@ -38,14 +46,6 @@
     &::after {
       left: 4px;
       transform: rotate(-45deg);
-    }
-  }
-  &--active &__arrow {
-    &::before {
-      transform: rotate(-45deg);
-    }
-    &::after {
-      transform: rotate(45deg);
     }
   }
 }

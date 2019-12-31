@@ -1,5 +1,5 @@
 import React from 'react'
-import './index.scss'
+import './NavMenu.scss'
 
 class NavMenu extends React.Component {
   constructor(props) {
@@ -18,16 +18,19 @@ class NavMenu extends React.Component {
     })
   }
   get menuClass() {
-    let result = ''
-    if(this.state.isExpand) {
-      result = 'nav-menu--active'
+    let result = 'nav-menu'
+    if (this.state.isExpand) {
+      result += ' nav-menu--active'
     }
     return result
   }
   render() {
     return (
-      <div className={`nav-menu ${this.menuClass}`} onClick={this.changeExpand}>
-        {this.props.children}
+      <div className={this.menuClass} onClick={this.changeExpand}>
+        <span>{this.props.name}</span>
+        <div className="nav-menu__sub">
+          {this.props.children}
+        </div>
         <span className="nav-menu__arrow"></span>
       </div>
     )
