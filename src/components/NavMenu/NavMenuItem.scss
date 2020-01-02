@@ -1,0 +1,20 @@
+.nav-menu-item {
+  position: relative;
+  padding-left: 20px;
+  font-size: 14px;
+  line-height: 50px;
+  color: #666;
+  transition: background 0.15s ease-in-out;
+  user-select: none;
+  cursor: pointer;
+  &:hover {
+    background-color: #f7f7f7;
+  }
+  &--active {
+    background-color: #f7f7f7;
+  }
+  &__menu {
+    position: relative;
+    padding: 0 20px;
+  }
+}

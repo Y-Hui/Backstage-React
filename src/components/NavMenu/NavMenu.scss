@@ -1,23 +1,18 @@
 .nav-menu {
   position: relative;
-  padding: 0 20px;
   font-size: 14px;
-  line-height: 50px;
   color: #666;
-  transition: background .15s ease-in-out;
   user-select: none;
+  &__sub {
+    background-color: #fff;
+  }
+}
+.menu-group {
+  position: relative;
+  padding: 0 20px;
+  line-height: 50px;
+  transition: background .2s ease-in-out, color .2s ease-in-out;
   cursor: pointer;
-  &:hover {
-    background-color: #f7f7f7;
-  }
-  &--active &__arrow {
-    &::before {
-      transform: rotate(-45deg);
-    }
-    &::after {
-      transform: rotate(45deg);
-    }
-  }
   &__arrow {
     position: absolute;
     top: 0;
@@ -26,10 +21,10 @@
     margin: auto 0;
     display: block;
     width: 32px;
-    height: 6px;
+    height: 0;
     &::before,
     &::after {
-      content: '';
+      content: "";
       position: absolute;
       top: 0;
       width: 8px;
@@ -46,6 +41,22 @@
     &::after {
       left: 4px;
       transform: rotate(-45deg);
+    }
+  }
+  &:active {
+    background-color: #f7f7f7;
+  }
+  &--active {
+    color: #3864ff;
+  }
+  &--active &__arrow {
+    &::before {
+      background-color: #3864ff;
+      transform: rotate(-45deg);
+    }
+    &::after {
+      background-color: #3864ff;
+      transform: rotate(45deg);
     }
   }
 }
