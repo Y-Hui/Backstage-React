@@ -1,0 +1,10 @@
+build/*
+dist/*
+dist-production/*
+node_modules/*
+public/*
+config/*
+scripts/*
+*.test.js
+serviceWorker.js
+setupTests.js

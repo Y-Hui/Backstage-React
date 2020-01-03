@@ -5,6 +5,8 @@
   user-select: none;
   &__sub {
     background-color: #fff;
+    overflow: hidden;
+    transition: max-height .3s ease-out;
   }
 }
 .menu-group {

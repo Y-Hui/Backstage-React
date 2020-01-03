@@ -10,6 +10,9 @@
   transition: filter 0.12s;
   user-select: none;
   cursor: pointer;
+  &:focus {
+    box-shadow: 0 0 0 2px rgba(185, 185, 185, .4);
+  }
   &:hover {
     filter: opacity(0.8);
     transition: filter 0.12s;
@@ -21,18 +24,30 @@
   &--blue {
     color: #fff;
     background-color: #3864ff;
+    &:focus {
+      box-shadow: 0 0 0 2px rgba(56, 100, 255, .4);
+    }
   }
   &--red {
     color: #fff;
     background-color: #ff3a6e;
+    &:focus {
+      box-shadow: 0 0 0 2px rgba(255, 58, 110, .4);
+    }
   }
   &--yellow {
     color: #fff;
     background-color: #ffd324;
+    &:focus {
+      box-shadow: 0 0 0 2px rgba(255, 211, 36, .4);
+    }
   }
   &--gray {
     color: #f7f7f7;
     background-color: #b9b9b9;
+    &:focus {
+      box-shadow: 0 0 0 2px rgba(185, 185, 185, .4);
+    }
   }
   &--round {
     border-radius: 30px;
