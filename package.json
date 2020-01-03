@@ -20,14 +20,6 @@
     "css-loader": "3.2.0",
     "dotenv": "8.2.0",
     "dotenv-expand": "5.1.0",
-    "eslint": "^6.6.0",
-    "eslint-config-react-app": "^5.1.0",
-    "eslint-loader": "3.0.2",
-    "eslint-plugin-flowtype": "3.13.0",
-    "eslint-plugin-import": "2.18.2",
-    "eslint-plugin-jsx-a11y": "6.2.3",
-    "eslint-plugin-react": "7.16.0",
-    "eslint-plugin-react-hooks": "^1.6.1",
     "file-loader": "4.3.0",
     "fs-extra": "^8.1.0",
     "html-webpack-plugin": "4.0.0-beta.5",
@@ -66,7 +58,8 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js"
+    "test": "node scripts/test.js",
+    "lint": "eslint --ext .js src"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -139,7 +132,20 @@
     ]
   },
   "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-react-app": "^5.1.0",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-loader": "3.0.2",
+    "eslint-plugin-flowtype": "3.13.0",
+    "eslint-plugin-import": "2.18.2",
+    "eslint-plugin-jsx-a11y": "6.2.3",
+    "eslint-plugin-react": "^7.17.0",
+    "eslint-plugin-react-hooks": "^1.6.1",
     "node-sass": "^4.13.0",
-    "scss-loader": "0.0.1"
+    "prop-types": "^15.7.2",
+    "react-style-proptype": "^3.2.2",
+    "scss-loader": "0.0.1",
+    "svg-sprite-loader": "^4.1.6"
   }
 }

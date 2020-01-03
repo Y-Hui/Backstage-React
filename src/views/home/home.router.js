@@ -1,5 +1,4 @@
-import Home from './index';
-
+import Home from './index'
 
 const home = {
   path: '/home',

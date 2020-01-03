@@ -1,7 +1,7 @@
-import React from 'react';
-import PropsType from 'prop-types'
-
-import './index.scss';
+import React from 'react'
+import PropTypes from 'prop-types'
+import findAttr from '@/utils/findAttr.js'
+import './index.scss'
 
 class Button extends React.Component {
   constructor(props) {
@@ -41,30 +41,16 @@ class Button extends React.Component {
     return className
   }
 
-  render() {
-    const { lineStyle } = this.state
-    return (
-      <button
-        className={this.classNameStr}
-        style={lineStyle}
-        data-vision-art={this.namespace}
-        type="button"
-      >
-        {this.props.children}
-      </button>
-    )
-  }
-
   setClassName(className) {
     this.setState((state) => {
       const { buttonClass } = state
       const classArr = [...buttonClass]
       const classNameArr = className.split(' ')
-      classNameArr.forEach(name => {
-        if (name && classArr.hasOwnProperty(name) === false) {
+      classNameArr.forEach((name) => {
+        if (name && findAttr(classArr, name) === false) {
           classArr.push(name)
         }
-      });
+      })
       return {
         buttonClass: classArr
       }
@@ -75,7 +61,7 @@ class Button extends React.Component {
     const { color } = this.props
     const { defaultColor } = this.state
     // 查找默认颜色
-    if (defaultColor.hasOwnProperty(color)) {
+    if (findAttr(defaultColor, color)) {
       this.setClassName(defaultColor[color])
     } else {
       // 使用行间样式
@@ -89,16 +75,15 @@ class Button extends React.Component {
     const { round } = this.props
     switch (round) {
       case false:
-        break;
+        break
       case true:
         this.setClassName('art-button--round')
         break
       default:
-        let unit = round.includes('%') ? '' : 'px'
         this.setLineStyle({
-          borderRadius: `${round}${unit}`
+          borderRadius: `${round}${round.includes('%') ? '' : 'px'}`
         })
-        break;
+        break
     }
   }
 
@@ -106,14 +91,30 @@ class Button extends React.Component {
   setLineStyle(cssObj) {
     const { lineStyle } = this.state
     this.setState({
-      lineStyle: Object.assign({}, lineStyle, cssObj)
+      lineStyle: { ...lineStyle, ...cssObj }
     })
   }
+
+  render() {
+    const { lineStyle } = this.state
+    const { children } = this.props
+    return (
+      <button
+        className={this.classNameStr}
+        style={lineStyle}
+        data-vision-art={this.namespace}
+        type="button"
+      >
+        {children}
+      </button>
+    )
+  }
 }
-Button.propsType = {
-  className: PropsType.string,
-  color: PropsType.style,
-  round: PropsType.oneOfType([PropsType.bool, PropsType.string, PropsType.number])
+Button.propTypes = {
+  className: PropTypes.string,
+  color: PropTypes.string,
+  round: PropTypes.oneOfType([PropTypes.bool, PropTypes.string, PropTypes.number]),
+  children: PropTypes.oneOfType([PropTypes.element, PropTypes.string]).isRequired
 }
 Button.defaultProps = {
   className: '',

@@ -1,6 +1,6 @@
-import React from 'react';
-import './index.scss';
-import NavMenu from '@module/NavMenu/NavMenu'
+import React from 'react'
+import './index.scss'
+import NavMenu from '@module/NavMenu/NavMenu.jsx'
 import NavMenuItem from '@module/NavMenu/NavMenuItem'
 
 function SideBar() {

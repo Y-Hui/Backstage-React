@@ -1,29 +1,33 @@
-import React from 'react';
-import Button from '@module/Button';
-import Checkbox from '@module/Checkbox';
-import './index.scss';
+import React from 'react'
+import Button from '@module/Button/index.jsx'
+import Checkbox from '@module/Checkbox/index.jsx'
+import './index.scss'
 
 class Home extends React.Component {
   constructor() {
     super()
-    this.handleCheck = this.handleCheck.bind(this);
-    this.handleCheck2 = this.handleCheck2.bind(this);
+    this.handleCheck = this.handleCheck.bind(this)
+    this.handleCheck2 = this.handleCheck2.bind(this)
     this.state = {
       check1: false,
       check2: true
     }
   }
+
   handleCheck(value) {
     this.setState({
       check1: value
     })
   }
+
   handleCheck2(value) {
     this.setState({
       check2: value
     })
   }
+
   render() {
+    const { check1, check2 } = this.state
     return (
       <div className="home">
         <Button>Primary</Button>
@@ -39,10 +43,10 @@ class Home extends React.Component {
         <Button className="circle" color="gray" round="50%">A</Button>
         <br />
         <br />
-        <Checkbox checked={this.state.check1} onChange={this.handleCheck} />
+        <Checkbox checked={check1} onChange={this.handleCheck} />
         <br />
-        <Checkbox checked={this.state.check2} onChange={this.handleCheck2}>哈哈</Checkbox>
-        <Checkbox checked={this.state.check2} onChange={this.handleCheck2}>哈哈</Checkbox>
+        <Checkbox checked={check2} onChange={this.handleCheck2}>哈哈</Checkbox>
+        <Checkbox checked={check2} onChange={this.handleCheck2}>哈哈</Checkbox>
       </div>
     )
   }
