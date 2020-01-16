@@ -6,13 +6,13 @@ import Navbar from '@/layout/Navbar/index.jsx'
 
 function App() {
   return (
-    <div className="app">
+    <>
       <Sidebar />
       <AppContent>
         <Navbar />
         <Router />
       </AppContent>
-    </div>
+    </>
   )
 }
 

@@ -2,6 +2,7 @@ import React from 'react'
 import Button from '@module/Button/index.jsx'
 import Checkbox from '@module/Checkbox/index.jsx'
 import './index.scss'
+import { Link } from 'react-router-dom'
 
 class Home extends React.Component {
   constructor() {
@@ -30,6 +31,7 @@ class Home extends React.Component {
     const { check1, check2 } = this.state
     return (
       <div className="home">
+        <Link to="/profile">个人中心</Link>
         <Button>Primary</Button>
         <Button color="red">Danger</Button>
         <Button color="yellow">Warning</Button>
@@ -40,7 +42,7 @@ class Home extends React.Component {
         <Button round>Danger</Button>
         <Button color="red" round className="change">Danger</Button>
         <Button color="yellow" round="10" className="change">Danger</Button>
-        <Button className="circle" color="gray" round="50%">A</Button>
+        {/* <Button className="circle" color="gray" round="50%">A</Button> */}
         <br />
         <br />
         <Checkbox checked={check1} onChange={this.handleCheck} />

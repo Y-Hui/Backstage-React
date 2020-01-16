@@ -1,64 +1,20 @@
-.nav-menu {
+.nav-menu-item {
   position: relative;
+  padding-left: 20px;
   font-size: 14px;
-  color: #666;
-  user-select: none;
-  &__sub {
-    background-color: #fff;
-    overflow: hidden;
-    transition: max-height .3s ease-out;
-  }
-}
-.menu-group {
-  position: relative;
-  padding: 0 20px;
   line-height: 50px;
-  transition: background .2s ease-in-out, color .2s ease-in-out;
+  color: #666;
+  transition: background 0.15s ease-in-out;
+  user-select: none;
   cursor: pointer;
-  &__arrow {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto 0;
-    display: block;
-    width: 32px;
-    height: 0;
-    &::before,
-    &::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      width: 8px;
-      height: 2px;
-      background-color: #949494;
-      border-radius: 10px;
-      transition: transform 0.2s;
-      transition-timing-function: ease-in-out;
-    }
-    &::before {
-      left: 0;
-      transform: rotate(45deg);
-    }
-    &::after {
-      left: 4px;
-      transform: rotate(-45deg);
-    }
-  }
-  &:active {
+  &:hover {
     background-color: #f7f7f7;
   }
   &--active {
-    color: #3864ff;
+    background-color: #f7f7f7;
   }
-  &--active &__arrow {
-    &::before {
-      background-color: #3864ff;
-      transform: rotate(-45deg);
-    }
-    &::after {
-      background-color: #3864ff;
-      transform: rotate(45deg);
-    }
+  &__menu {
+    position: relative;
+    padding: 0 20px;
   }
 }
