@@ -1,7 +1,5 @@
 import React from 'react'
-import {
-  BrowserRouter, Route, Switch, Redirect
-} from 'react-router-dom'
+import { Route, Switch, Redirect } from 'react-router-dom'
 
 const routerModule = []
 // 自动导入路由模块
@@ -25,17 +23,15 @@ function RouterView(route) {
 
 function Router() {
   return (
-    <BrowserRouter>
-      <Switch>
-        {
-          routerModule.map((route) => (
-            // eslint-disable-next-line react/jsx-props-no-spreading
-            <RouterView key={route.path} {...route} />
-          ))
-        }
-        <Redirect from="/" to="/home" />
-      </Switch>
-    </BrowserRouter>
+    <Switch>
+      {
+        routerModule.map((route) => (
+          // eslint-disable-next-line react/jsx-props-no-spreading
+          <RouterView key={route.path} {...route} />
+        ))
+      }
+      <Redirect from="/" to="/home" />
+    </Switch>
   )
 }
 

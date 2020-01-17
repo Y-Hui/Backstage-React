@@ -2,11 +2,22 @@ import React from 'react'
 import './index.scss'
 import NavMenuGroup from '@module/NavMenu/NavMenuGroup.jsx'
 import NavMenu from '@module/NavMenu/NavMenu.jsx'
+import { useHistory } from 'react-router-dom'
 
 function SideBar() {
+  const history = useHistory()
+  function handleClick() {
+    history.push('/home')
+  }
   return (
     <aside className="side-bar">
-      <NavMenu>首页</NavMenu>
+      <NavMenu onClick={handleClick}>首页</NavMenu>
+      <NavMenu>个人中心</NavMenu>
+      <NavMenuGroup name="工作台">
+        <NavMenu>计划任务</NavMenu>
+        <NavMenu>分配给我</NavMenu>
+        <NavMenu>权限管理</NavMenu>
+      </NavMenuGroup>
       <NavMenuGroup name="嵌套路由">
         <NavMenuGroup name="二级路由">
           <NavMenuGroup name="三级嵌套">
@@ -19,11 +30,6 @@ function SideBar() {
           <NavMenu>三级路由</NavMenu>
         </NavMenuGroup>
         <NavMenu>二级路由</NavMenu>
-      </NavMenuGroup>
-      <NavMenuGroup name="工作台">
-        <NavMenu>仪表盘</NavMenu>
-        <NavMenu>待办事项</NavMenu>
-        <NavMenu>权限管理</NavMenu>
       </NavMenuGroup>
       <NavMenuGroup name="异常页面">
         <NavMenu>101</NavMenu>
