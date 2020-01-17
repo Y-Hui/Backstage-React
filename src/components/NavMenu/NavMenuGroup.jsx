@@ -14,13 +14,13 @@ class NavMenuGroup extends React.Component {
     this.handleKeyPress = this.handleKeyPress.bind(this)
 
     this.state = {
-      isShow: true,
+      isShow: false,
       panelStyle: {
         show: {
           maxHeight: 'fit-content'
         },
         hide: {
-          maxHeight: 0
+          maxHeight: 'auto'
         }
       }
     }
@@ -35,11 +35,13 @@ class NavMenuGroup extends React.Component {
           ...panelStyle,
           show: {
             maxHeight: height
+          },
+          hide: {
+            maxHeight: 0
           }
         }
       }
     })
-    this.switchPanel()
   }
 
   // 菜单高亮 class
