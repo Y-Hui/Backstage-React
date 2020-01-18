@@ -9,7 +9,6 @@ class Home extends React.Component {
     super()
     this.handleCheck = this.handleCheck.bind(this)
     this.handleCheck2 = this.handleCheck2.bind(this)
-    this.$router = this.$router.bind(this)
     this.state = {
       check1: false,
       check2: true
@@ -28,20 +27,24 @@ class Home extends React.Component {
     })
   }
 
-  $router() {
-    const { history } = this.props
-    history.push({
-      pathname: '/profile'
-    })
-  }
-
   render() {
     const { check1, check2 } = this.state
+    const { history } = this.props
     return (
       <div className="home">
-        <Button onClick={this.$router}>个人中心</Button>
-        <Button color="red">Danger</Button>
-        <Button color="yellow">Warning</Button>
+        <Button onClick={() => history.push('/profile')}>个人中心</Button>
+        <Button
+          onClick={() => history.push('/user/login')}
+          color="red"
+        >
+          登录
+        </Button>
+        <Button
+          onClick={() => history.push('/user/register')}
+          color="yellow"
+        >
+          注册
+        </Button>
         <Button color="gray">Secondary</Button>
         <Button className="change" color="#2B2F32">Customize</Button>
         <br />

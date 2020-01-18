@@ -1,0 +1,90 @@
+.login {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: #fff url("~@/assets/images/login.svg") no-repeat;
+  background-size: auto 100%;
+  background-position-x: 100%;
+}
+.operating {
+  position: fixed;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  padding: 0 30px;
+  width: 390px;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(30px);
+}
+.tab {
+  position: relative;
+  padding-top: 88px;
+  padding-left: 6px;
+  &__item {
+    display: inline-block;
+    font-size: 22px;
+    font-weight: 400;
+    color: #b9b9b9;
+    cursor: pointer;
+    transform-origin: bottom;
+    transition: transform .26s, color .26s;
+    &:not(:first-child) {
+      margin-left: 22px;
+    }
+    &--active {
+      font-weight: 600;
+      color: #2b2f32;
+      transform: scale(1.25);
+      transition: transform .26s, color .26s;
+    }
+  }
+}
+.form {
+  margin-top: 64px;
+  &__item {
+    &:not(:first-child) {
+      margin-top: 30px;
+    }
+  }
+  &__label {
+    font-size: 14px;
+    text-indent: 4px;
+    color: #b9b9b9;
+    cursor: default;
+    &--top {
+      margin-top: 10px;
+      margin-bottom: 0;
+    }
+    &--bottom {
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+  }
+  &__field {
+    width: 100%;
+    height: 50px;
+    font-size: 20px;
+    border-radius: 6px;
+    &--input {
+      box-sizing: border-box;
+      padding: 0 10px;
+      font-size: 16px;
+      color: #2b2f32;
+      caret-color: #345dee;
+      background-color: rgba(0, 0, 0, 0.06);
+      border: 0;
+      transition: box-shadow 0.2s;
+      &:focus {
+        outline: 0;
+        box-shadow: 0 0 0 2px rgba(56, 100, 255, 0.6);
+        transition: box-shadow 0.2s;
+      }
+    }
+  }
+}
+.login .button-lg {
+  width: 100%;
+  height: 50px;
+  font-size: 20px;
+}

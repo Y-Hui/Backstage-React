@@ -6,7 +6,11 @@ const routerModule = []
 const routerConfig = require.context('./views', true, /router\.js|\.router\.js$/)
 routerConfig.keys().forEach((fileName) => {
   const route = routerConfig(fileName).default
-  routerModule.push(route)
+  if (Array.isArray(route)) {
+    routerModule.push(...route)
+  } else {
+    routerModule.push(route)
+  }
 })
 
 // 路由视图组件
