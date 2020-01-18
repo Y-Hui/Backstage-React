@@ -41,6 +41,7 @@ module.exports = {
     'comma-dangle': ['error', 'never'],
     'jsx-a11y/no-noninteractive-tabindex': 0,
     'jsx-a11y/interactive-supports-focus': 0,
+    "react/jsx-props-no-spreading": 0,
     'no-console': 'warn',
     'no-debugger': 'error',
     'import/no-extraneous-dependencies': 0

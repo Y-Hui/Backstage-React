@@ -2,13 +2,14 @@ import React from 'react'
 import Button from '@module/Button/index.jsx'
 import Checkbox from '@module/Checkbox/index.jsx'
 import './index.scss'
-import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
 
 class Home extends React.Component {
   constructor() {
     super()
     this.handleCheck = this.handleCheck.bind(this)
     this.handleCheck2 = this.handleCheck2.bind(this)
+    this.$router = this.$router.bind(this)
     this.state = {
       check1: false,
       check2: true
@@ -27,12 +28,18 @@ class Home extends React.Component {
     })
   }
 
+  $router() {
+    const { history } = this.props
+    history.push({
+      pathname: '/profile'
+    })
+  }
+
   render() {
     const { check1, check2 } = this.state
     return (
       <div className="home">
-        <Link to="/profile">个人中心</Link>
-        <Button>Primary</Button>
+        <Button onClick={this.$router}>个人中心</Button>
         <Button color="red">Danger</Button>
         <Button color="yellow">Warning</Button>
         <Button color="gray">Secondary</Button>
@@ -42,7 +49,6 @@ class Home extends React.Component {
         <Button round>Danger</Button>
         <Button color="red" round className="change">Danger</Button>
         <Button color="yellow" round="10" className="change">Danger</Button>
-        {/* <Button className="circle" color="gray" round="50%">A</Button> */}
         <br />
         <br />
         <Checkbox checked={check1} onChange={this.handleCheck} />
@@ -52,6 +58,13 @@ class Home extends React.Component {
       </div>
     )
   }
+}
+Home.propTypes = {
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired,
+    replace: PropTypes.func.isRequired,
+    createHref: PropTypes.func.isRequired
+  }).isRequired
 }
 
 export default Home

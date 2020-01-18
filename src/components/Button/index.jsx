@@ -97,13 +97,14 @@ class Button extends React.Component {
 
   render() {
     const { lineStyle } = this.state
-    const { children } = this.props
+    const { onClick, children } = this.props
     return (
       <button
         className={this.classNameStr}
         style={lineStyle}
         data-vision-art={this.namespace}
         type="button"
+        onClick={onClick}
       >
         {children}
       </button>
@@ -114,12 +115,14 @@ Button.propTypes = {
   className: PropTypes.string,
   color: PropTypes.string,
   round: PropTypes.oneOfType([PropTypes.bool, PropTypes.string, PropTypes.number]),
+  onClick: PropTypes.func,
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.string]).isRequired
 }
 Button.defaultProps = {
   className: '',
   color: 'blue',
-  round: false
+  round: false,
+  onClick: () => { }
 }
 
 export default Button
