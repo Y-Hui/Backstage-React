@@ -3,6 +3,10 @@
   display: inline-block;
   line-height: 0;
   cursor: pointer;
+  &--disable {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
   &__icon {
     position: relative;
     display: inline-block;
@@ -14,12 +18,13 @@
     border-radius: 3px;
     border: 1px solid #d6d6d6;
     vertical-align: middle;
-    transition: background .3s;
+    transition: background 0.3s;
     outline: none;
     &:focus {
-      box-shadow: 0 0 0 2px rgba(56, 100, 255, .4);
+      box-shadow: 0 0 0 2px rgba(56, 100, 255, 0.4);
     }
-    &::before, &::after {
+    &::before,
+    &::after {
       content: "";
       display: block;
       width: 100%;
@@ -29,7 +34,7 @@
       background-color: #fff;
       border-radius: 2px;
       transform: scale(1);
-      transition: transform .2s ease-out;
+      transition: transform 0.2s ease-out;
     }
     &::after {
       position: absolute;
@@ -38,7 +43,8 @@
       bottom: 0;
       left: 0;
       margin: auto;
-      background: url("data:image/svg+xml,%3Csvg viewBox='0 0 14 11' xmlns='http://www.w3.org/2000/svg' fill-rule='evenodd' clip-rule='evenodd' stroke-linejoin='round' stroke-miterlimit='1.414'%3E%3Cpath d='M5.432 8.475l6.813-8.12a.995.995 0 0 1 1.523 1.277l-7.522 8.964a.858.858 0 0 1-.027.031.994.994 0 0 1-1.548.032L.232 5.369a.997.997 0 0 1-.219-.622 1 1 0 0 1 .994-.994c.287 0 .559.124.748.339l3.677 4.383z' fill='%23fff'/%3E%3C/svg%3E") no-repeat;
+      background: url("data:image/svg+xml,%3Csvg viewBox='0 0 14 11' xmlns='http://www.w3.org/2000/svg' fill-rule='evenodd' clip-rule='evenodd' stroke-linejoin='round' stroke-miterlimit='1.414'%3E%3Cpath d='M5.432 8.475l6.813-8.12a.995.995 0 0 1 1.523 1.277l-7.522 8.964a.858.858 0 0 1-.027.031.994.994 0 0 1-1.548.032L.232 5.369a.997.997 0 0 1-.219-.622 1 1 0 0 1 .994-.994c.287 0 .559.124.748.339l3.677 4.383z' fill='%23fff'/%3E%3C/svg%3E")
+        no-repeat;
       background-size: 70%;
       background-position: center;
       transform: scale(0);
@@ -51,18 +57,18 @@
     line-height: 1;
     color: #292929;
     vertical-align: middle;
-    cursor: pointer;
+    cursor: inherit;
   }
   [aria-checked="true"] &__icon {
     background-color: #3864ff;
     border-color: #3864ff;
     &::before {
       transform: scale(0);
-      transition: transform .2s ease-in;
+      transition: transform 0.2s ease-in;
     }
     &::after {
-      animation: zoomInIcon .2s ease-in forwards;
-      animation-delay: .1s;
+      animation: zoomInIcon 0.2s ease-in forwards;
+      animation-delay: 0.1s;
     }
   }
 }
