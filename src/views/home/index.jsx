@@ -1,12 +1,9 @@
-import React, { useState } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import Button from '@module/Button/index.jsx'
-import Checkbox from '@module/Checkbox/index.jsx'
 import './index.scss'
 
 function Home(props) {
-  const [check1, updateCheck1] = useState(true)
-  const [check2, updateCheck2] = useState(false)
   const { history } = props
 
   return (
@@ -24,18 +21,6 @@ function Home(props) {
       >
         注册
       </Button>
-      <Button color="gray">Secondary</Button>
-      <Button className="change" color="#2B2F32">Customize</Button>
-      <br />
-      <br />
-      <Button round>Danger</Button>
-      <Button color="red" round className="change">Danger</Button>
-      <Button color="yellow" round="10" className="change">Danger</Button>
-      <br />
-      <br />
-      <Checkbox checked disable>禁用选项</Checkbox>
-      <Checkbox checked={check1} onChange={updateCheck1}>已阅读并同意</Checkbox>
-      <Checkbox checked={check2} onChange={updateCheck2}>哈哈</Checkbox>
     </div>
   )
 }

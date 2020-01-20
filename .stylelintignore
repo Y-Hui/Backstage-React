@@ -4,3 +4,4 @@ dist/*
 dist-production/*
 node_modules/*
 public/*
+src/icons/*

@@ -1,0 +1,43 @@
+.field {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  background-color: #f5f5f5;
+  border: 1px solid #f5f5f5;
+  border-radius: 4px;
+  transition:
+    background-color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1),
+    border-color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1),
+    box-shadow 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+
+  &--active,
+  &:focus-within {
+    background-color: #fff;
+    border-color: #3864ff;
+    box-shadow: 0 0 0 2px rgba(56, 100, 255, 0.3);
+  }
+
+  &__icon {
+    padding: 0 10px;
+  }
+
+  &__input {
+    display: inline-block;
+    min-height: 36px;
+    padding: 0 6px;
+    font-size: 16px;
+    line-height: 1;
+    color: #040404;
+    vertical-align: middle;
+    background-color: transparent;
+    border: 0;
+    outline: none;
+    box-sizing: border-box;
+    caret-color: #2b2f32;
+
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+  }
+}

@@ -6,30 +6,25 @@ import { useHistory } from 'react-router-dom'
 
 function SideBar() {
   const history = useHistory()
-  function handleClick() {
-    history.push('/home')
-  }
   return (
     <aside className="side-bar">
-      <NavMenu onClick={handleClick}>首页</NavMenu>
-      <NavMenu>个人中心</NavMenu>
+      <NavMenu onClick={() => history.replace('/home')}>首页</NavMenu>
+      <NavMenu onClick={() => history.replace('/profile')}>个人中心</NavMenu>
+      <NavMenuGroup name="组件演示">
+        <NavMenu onClick={() => history.replace('/demo/button')}>Button</NavMenu>
+        <NavMenu onClick={() => history.replace('/demo/checkbox')}>Checkbox</NavMenu>
+        <NavMenu>SvgIcon</NavMenu>
+        <NavMenuGroup name="Text Box">
+          <NavMenu>步进器</NavMenu>
+          <NavMenuGroup name="Field">
+            <NavMenu onClick={() => history.replace('/demo/field')}>Default</NavMenu>
+          </NavMenuGroup>
+        </NavMenuGroup>
+      </NavMenuGroup>
       <NavMenuGroup name="工作台">
         <NavMenu>计划任务</NavMenu>
         <NavMenu>分配给我</NavMenu>
         <NavMenu>权限管理</NavMenu>
-      </NavMenuGroup>
-      <NavMenuGroup name="嵌套路由">
-        <NavMenuGroup name="二级路由">
-          <NavMenuGroup name="三级嵌套">
-            <NavMenu>四级路由</NavMenu>
-            <NavMenu>四级路由</NavMenu>
-            <NavMenu>四级路由</NavMenu>
-            <NavMenu>四级路由</NavMenu>
-          </NavMenuGroup>
-          <NavMenu>三级路由</NavMenu>
-          <NavMenu>三级路由</NavMenu>
-        </NavMenuGroup>
-        <NavMenu>二级路由</NavMenu>
       </NavMenuGroup>
       <NavMenuGroup name="异常页面">
         <NavMenu>101</NavMenu>
@@ -48,4 +43,4 @@ function SideBar() {
   )
 }
 
-export default SideBar
+export default React.memo(SideBar)

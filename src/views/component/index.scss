@@ -1,0 +1,22 @@
+.demo {
+  padding: 10px 10px 30px 10px;
+  background-color: #fff;
+  border-radius: 6px;
+  box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.04);
+}
+
+h2 {
+  margin: 0 0 14px 0;
+}
+
+pre {
+  max-width: 600px;
+  border-radius: 4px;
+}
+
+code,
+kbd,
+samp {
+  font-family: "SF Mono", "Menlo", "Consolas", "PingFang SC", "Courier New", monospace, "Microsoft YaHei", sans-serif;
+  font-size: 14px;
+}

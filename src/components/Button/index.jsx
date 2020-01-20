@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import findAttr from '@/utils/findAttr.js'
+import stylePropType from 'react-style-proptype'
+import { hasAttr } from '@/utils/common'
 import './index.scss'
 
 class Button extends React.Component {
@@ -47,7 +48,7 @@ class Button extends React.Component {
       const classArr = [...buttonClass]
       const classNameArr = className.split(' ')
       classNameArr.forEach((name) => {
-        if (name && findAttr(classArr, name) === false) {
+        if (name && hasAttr(classArr, name) === false) {
           classArr.push(name)
         }
       })
@@ -61,7 +62,7 @@ class Button extends React.Component {
     const { color } = this.props
     const { defaultColor } = this.state
     // 查找默认颜色
-    if (findAttr(defaultColor, color)) {
+    if (hasAttr(defaultColor, color)) {
       this.setClassName(defaultColor[color])
     } else {
       // 使用行间样式
@@ -90,8 +91,9 @@ class Button extends React.Component {
   // 设置行间样式
   setLineStyle(cssObj) {
     const { lineStyle } = this.state
+    const { style } = this.props
     this.setState({
-      lineStyle: { ...lineStyle, ...cssObj }
+      lineStyle: { ...lineStyle, ...cssObj, ...style }
     })
   }
 
@@ -113,15 +115,22 @@ class Button extends React.Component {
 }
 Button.propTypes = {
   className: PropTypes.string,
-  color: PropTypes.string,
-  round: PropTypes.oneOfType([PropTypes.bool, PropTypes.string, PropTypes.number]),
+  color: PropTypes.oneOf(['blue', 'red', 'yellow', 'gray']),
+  round: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.string,
+    PropTypes.number
+  ]),
+  // 行内样式
+  style: stylePropType,
   onClick: PropTypes.func,
-  children: PropTypes.oneOfType([PropTypes.element, PropTypes.string]).isRequired
+  children: PropTypes.node.isRequired
 }
 Button.defaultProps = {
   className: '',
   color: 'blue',
   round: false,
+  style: {},
   onClick: () => { }
 }
 

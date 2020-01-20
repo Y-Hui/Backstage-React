@@ -4,12 +4,12 @@ import './index.scss'
 
 function Checkbox(props) {
   const {
-    checked, disable, keyCode, onChange, children
+    checked, disabled, keyCode, onChange, children
   } = props
 
   // 事件总线
   const eventBus = () => {
-    if (disable === false) {
+    if (disabled === false) {
       onChange(!checked)
     }
   }
@@ -22,18 +22,18 @@ function Checkbox(props) {
 
   const className = useMemo(() => {
     const name = ['art-checkbox']
-    if (disable) {
+    if (disabled) {
       name.push('art-checkbox--disable')
     }
     return name.join(' ')
-  }, [disable])
+  }, [disabled])
 
   return (
     <div
       className={className}
       role="checkbox"
       aria-checked={checked}
-      aria-disabled={disable}
+      aria-disabled={disabled}
       onClick={eventBus}
       onKeyPress={handleKeyPress}
     >
@@ -44,14 +44,14 @@ function Checkbox(props) {
 }
 Checkbox.propTypes = {
   checked: PropTypes.bool,
-  disable: PropTypes.bool,
+  disabled: PropTypes.bool,
   onChange: PropTypes.func,
   keyCode: PropTypes.number,
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.string])
 }
 Checkbox.defaultProps = {
   checked: false,
-  disable: false,
+  disabled: false,
   keyCode: 13,
   onChange: () => {},
   children: null
