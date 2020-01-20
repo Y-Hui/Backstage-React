@@ -1,54 +1,65 @@
 [data-vision-art].art-button {
   position: relative;
-  padding: 0 16px;
-  min-width: 94px;
   height: 36px;
+  min-width: 94px;
+  padding: 0 16px;
   font-size: 14px;
+  cursor: pointer;
   border: none;
   border-radius: 4px;
   outline: none;
-  transition: box-shadow .2s;
+  transition: box-shadow 0.2s;
   user-select: none;
-  cursor: pointer;
+
   &:focus {
-    box-shadow: 0 0 0 2px rgba(185, 185, 185, .4);
-    transition: box-shadow .2s;
+    box-shadow: 0 0 0 2px rgba(185, 185, 185, 0.4);
+    transition: box-shadow 0.2s;
   }
+
   &:active {
     filter: brightness(0.8);
   }
+
   &--blue {
     color: #fff;
     background-color: #3864ff;
+
     &:focus {
-      box-shadow: 0 0 0 2px rgba(56, 100, 255, .4);
-      transition: box-shadow .2s;
+      box-shadow: 0 0 0 2px rgba(56, 100, 255, 0.4);
+      transition: box-shadow 0.2s;
     }
   }
+
   &--red {
     color: #fff;
     background-color: #ff3a6e;
+
     &:focus {
-      box-shadow: 0 0 0 2px rgba(255, 58, 110, .4);
-      transition: box-shadow .2s;
+      box-shadow: 0 0 0 2px rgba(255, 58, 110, 0.4);
+      transition: box-shadow 0.2s;
     }
   }
+
   &--yellow {
     color: #fff;
     background-color: #ffd324;
+
     &:focus {
-      box-shadow: 0 0 0 2px rgba(255, 211, 36, .4);
-      transition: box-shadow .2s;
+      box-shadow: 0 0 0 2px rgba(255, 211, 36, 0.4);
+      transition: box-shadow 0.2s;
     }
   }
+
   &--gray {
     color: #f7f7f7;
     background-color: #b9b9b9;
+
     &:focus {
-      box-shadow: 0 0 0 2px rgba(185, 185, 185, .4);
-      transition: box-shadow .2s;
+      box-shadow: 0 0 0 2px rgba(185, 185, 185, 0.4);
+      transition: box-shadow 0.2s;
     }
   }
+
   &--round {
     border-radius: 30px;
   }
@@ -56,8 +67,8 @@
 
 @keyframes ripple {
   100% {
+    background-color: transparent;
     -webkit-transform: scale(12);
     transform: scale(12);
-    background-color: transparent;
   }
 }

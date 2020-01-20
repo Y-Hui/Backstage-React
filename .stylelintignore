@@ -1,0 +1,6 @@
+# .gitignore syntax (uses node-ignore behind the scenes)
+build/*
+dist/*
+dist-production/*
+node_modules/*
+public/*
