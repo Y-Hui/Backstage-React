@@ -2,6 +2,8 @@ import ComponentDemo from './index'
 import Button from './button/index'
 import Checkbox from './checkbox/index'
 import Field from './field/index'
+import SvgIcon from './svgIcon/index'
+import FieldPasswordDemo from './field/password'
 
 export default {
   path: '/demo',
@@ -18,6 +20,15 @@ export default {
     {
       path: '/demo/field',
       component: Field
+    },
+    {
+      path: '/demo/field-password',
+      exact: true,
+      component: FieldPasswordDemo
+    },
+    {
+      path: '/demo/svgicon',
+      component: SvgIcon
     }
   ]
 }

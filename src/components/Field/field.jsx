@@ -8,7 +8,7 @@ function Field(props) {
   const {
     id, type, name, value, placeholder,
     disabled, readonly, autocomplete,
-    style, nativeProps,
+    style, nativeProps, className,
     onChange, onFocus, onBlur, onPressEnter,
     children
   } = props
@@ -80,31 +80,33 @@ function Field(props) {
   }
 
   const fieldClass = useMemo(() => {
-    const className = ['field']
+    const classNames = ['field']
+    classNames.push(...className.split(' '))
     if (isFocus) {
-      className.push('field--active')
+      classNames.push('field--active')
     }
-    return className.join(' ')
+    return classNames.join(' ')
   }, [isFocus])
 
   return (
-    <div className={fieldClass}>
-      {slot().left}
-      <input
-        {...attr}
-        {...nativeProps}
-        className="field__input"
-        style={style}
-        type={type}
-        value={val}
-        disabled={disabled ? 'disabled' : ''}
-        readOnly={readonly ? 'readonly' : ''}
-        onChange={handleChange}
-        onFocus={handleFocus}
-        onBlur={handleBlur}
-        onKeyPress={handleEnter}
-      />
-      {slot().right}
+    <div className={fieldClass} style={style}>
+      <div className="field__content">
+        {slot().left}
+        <input
+          {...attr}
+          {...nativeProps}
+          className="field__input"
+          type={type}
+          value={val}
+          disabled={disabled ? 'disabled' : ''}
+          readOnly={readonly ? 'readonly' : ''}
+          onChange={handleChange}
+          onFocus={handleFocus}
+          onBlur={handleBlur}
+          onKeyPress={handleEnter}
+        />
+        {slot().right}
+      </div>
     </div>
   )
 }
@@ -130,6 +132,9 @@ Field.propTypes = {
   // 其他未定义的原生属性
   // eslint-disable-next-line react/forbid-prop-types
   nativeProps: PropTypes.object,
+  // css 类名
+  className: PropTypes.string,
+  // 插槽内容
   children: PropTypes.shape({
     left: PropTypes.node,
     right: PropTypes.node
@@ -154,6 +159,7 @@ Field.defaultProps = {
   autocomplete: 'off',
   style: {},
   nativeProps: {},
+  className: '',
   children: {},
   onChange: () => { },
   onFocus: () => { },

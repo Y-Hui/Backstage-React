@@ -115,7 +115,7 @@ class Button extends React.Component {
 }
 Button.propTypes = {
   className: PropTypes.string,
-  color: PropTypes.oneOf(['blue', 'red', 'yellow', 'gray']),
+  color: PropTypes.string,
   round: PropTypes.oneOfType([
     PropTypes.bool,
     PropTypes.string,

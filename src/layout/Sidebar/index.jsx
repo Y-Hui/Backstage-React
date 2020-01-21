@@ -13,11 +13,12 @@ function SideBar() {
       <NavMenuGroup name="组件演示">
         <NavMenu onClick={() => history.replace('/demo/button')}>Button</NavMenu>
         <NavMenu onClick={() => history.replace('/demo/checkbox')}>Checkbox</NavMenu>
-        <NavMenu>SvgIcon</NavMenu>
+        <NavMenu onClick={() => history.replace('/demo/svgicon')}>SvgIcon</NavMenu>
         <NavMenuGroup name="Text Box">
           <NavMenu>步进器</NavMenu>
           <NavMenuGroup name="Field">
             <NavMenu onClick={() => history.replace('/demo/field')}>Default</NavMenu>
+            <NavMenu onClick={() => history.replace('/demo/field-password')}>Password</NavMenu>
           </NavMenuGroup>
         </NavMenuGroup>
       </NavMenuGroup>
