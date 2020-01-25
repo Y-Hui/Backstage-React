@@ -9592,7 +9592,7 @@ react-style-proptype@^3.2.2:
 
 react-syntax-highlighter@^12.2.1:
   version "12.2.1"
-  resolved "https://registry.npm.taobao.org/react-syntax-highlighter/download/react-syntax-highlighter-12.2.1.tgz#14d78352da1c1c3f93c6698b70ec7c706b83493e"
+  resolved "https://registry.npm.taobao.org/react-syntax-highlighter/download/react-syntax-highlighter-12.2.1.tgz?cache=0&sync_timestamp=1576493296354&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Freact-syntax-highlighter%2Fdownload%2Freact-syntax-highlighter-12.2.1.tgz#14d78352da1c1c3f93c6698b70ec7c706b83493e"
   integrity sha1-FNeDUtocHD+TxmmLcOx8cGuDST4=
   dependencies:
     "@babel/runtime" "^7.3.1"

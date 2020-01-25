@@ -1,5 +1,12 @@
 # Field
 
+```javascript
+import Field from './index.js'
+
+// Field.Password 密码框(带有密码文本明文切换)
+```
+
+
 | Props        | 说明                                                         | 类型    | 默认值       |
 | ------------ | ------------------------------------------------------------ | ------- | ------------ |
 | id           | 设置 id（原生属性）                                          | String  | -            |
@@ -18,3 +25,6 @@
 | onChange     | 输入框内容变化时的回调 | 改变后的文本内容 |
 | onPressEnter | 按下回车的回调         | 文本内容         |
 
+## Password
+
+除`type`、`children`外其他属性全部与 Field 一致。
