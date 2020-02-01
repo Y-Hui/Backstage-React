@@ -16,6 +16,7 @@ const ButtonPropType = {
   // 行内样式
   style: stylePropType,
   onClick: PropTypes.func,
+  disabled: PropTypes.bool,
   children: PropTypes.node.isRequired
 }
 type Props = PropTypes.InferProps<typeof ButtonPropType>
@@ -28,6 +29,7 @@ const Button:React.FC<Props> = (props: Props) => {
     color,
     round,
     onClick,
+    disabled,
     children
   } = props
 
@@ -88,6 +90,7 @@ const Button:React.FC<Props> = (props: Props) => {
       className={_className}
       type="button"
       style={style}
+      disabled={disabled!}
       onClick={onClick!}
     >
       {children}
@@ -101,6 +104,7 @@ Button.defaultProps = {
   color: 'blue',
   round: false,
   style: {},
+  disabled: false,
   onClick: () => { }
 }
 

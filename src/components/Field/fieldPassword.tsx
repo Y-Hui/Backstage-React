@@ -7,7 +7,7 @@ import Field from './field'
 // 密码框 Props 类型验证
 const FieldPasswordPropType = {
   ...types,
-  children: PropTypes.node
+  prefix: PropTypes.node
 }
 type Props = PropTypes.InferProps<typeof FieldPasswordPropType>
 
@@ -16,7 +16,7 @@ const FieldPassword: React.FC<Props> = (props: Props) => {
     id, name, value, placeholder,
     disabled, readonly, autocomplete,
     style, nativeProps, className,
-    children,
+    prefix,
     onChange, onFocus, onBlur, onPressEnter
   } = props
 
@@ -39,17 +39,6 @@ const FieldPassword: React.FC<Props> = (props: Props) => {
     setIcon(icon === '#eye' ? '#eye-invisible' : '#eye')
   }
 
-  // 插槽内容
-  // const slot = () => ({
-  //   left: children,
-  //   right: <SvgIcon
-  //     iconName={icon}
-  //     color="#a8a8a8"
-  //     style={{ cursor: 'pointer' }}
-  //     onClick={handleType}
-  //   />
-  // })
-
   return (
     <Field
       id={id}
@@ -67,7 +56,7 @@ const FieldPassword: React.FC<Props> = (props: Props) => {
       onBlur={onBlur}
       value={val}
       onPressEnter={onPressEnter}
-      prefix={children}
+      prefix={prefix}
       suffix={(
         <SvgIcon
           iconName={icon}
@@ -83,7 +72,7 @@ const FieldPassword: React.FC<Props> = (props: Props) => {
 FieldPassword.propTypes = types
 FieldPassword.defaultProps = {
   ...defaultProps,
-  children: null
+  prefix: null
 }
 
 export default FieldPassword

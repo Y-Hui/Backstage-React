@@ -26,6 +26,11 @@ const ButtonDemo:React.FC = () => (
     <SyntaxHighlighter language="React JSX" style={atomOneDark}>
       {'<Button round>Round</Button>\n<Button color="red" round="6px">6px Round</Button>'}
     </SyntaxHighlighter>
+    <h3>Disabled</h3>
+    <Button round disabled>Disabled</Button>
+    <SyntaxHighlighter language="React JSX" style={atomOneDark}>
+      {'<Button round disabled>Disabled</Button>'}
+    </SyntaxHighlighter>
   </div>
 )
 

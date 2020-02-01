@@ -21,6 +21,11 @@
     filter: brightness(0.8);
   }
 
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
   &--blue {
     color: #fff;
     background-color: #3864ff;
