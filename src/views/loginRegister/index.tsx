@@ -1,12 +1,15 @@
 import React from 'react'
+import { NavLink, Switch } from 'react-router-dom'
+import PropTypes from 'prop-types'
 import './login.scss'
-import { Switch, NavLink } from 'react-router-dom'
-import { RouteConfig } from 'react-router-config'
-import { RouterView } from '@/router.tsx'
 
-const LoginRegister:React.FC = (props:RouteConfig) => {
-  const { routes } = props
+const LayoutProps = {
+  children: PropTypes.node
+}
+type Props = PropTypes.InferProps<typeof LayoutProps>
 
+const LoginRegister:React.FC = (props:Props) => {
+  const { children } = props
   return (
     <div className="user">
       <div className="operating">
@@ -31,11 +34,7 @@ const LoginRegister:React.FC = (props:RouteConfig) => {
           </NavLink>
         </header>
         <Switch>
-          {
-            routes!.map((route:RouteConfig) => (
-              <RouterView key={route.path?.toString()} {...route} />
-            ))
-          }
+          {children}
         </Switch>
       </div>
     </div>

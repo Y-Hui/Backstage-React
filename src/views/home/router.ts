@@ -1,9 +1,8 @@
 import Home from './index'
 
-const home = {
+export default {
   path: '/home',
+  name: 'Home',
   exact: true,
   component: Home
 }
-
-export default home
