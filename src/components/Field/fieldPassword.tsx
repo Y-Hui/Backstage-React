@@ -1,62 +1,37 @@
-import React, { useState } from 'react'
-import PropTypes from 'prop-types'
+import React, { useState, useMemo } from 'react'
 import SvgIcon from '@module/SvgIcon/svgIcon.tsx'
-import { types, defaultProps } from './fieldProps'
+import { Props, defaultProps } from './props/index'
 import Field from './field'
 
-// 密码框 Props 类型验证
-const FieldPasswordPropType = {
-  ...types,
-  prefix: PropTypes.node
-}
-type Props = PropTypes.InferProps<typeof FieldPasswordPropType>
-
-const FieldPassword: React.FC<Props> = (props: Props) => {
-  const {
-    id, name, value, placeholder,
-    disabled, readonly, autocomplete,
-    style, nativeProps, className,
-    prefix,
-    onChange, onFocus, onBlur, onPressEnter
-  } = props
-
-  // input.value
+export default function FieldPassword(props: Props) {
+  const { value, onChange, ...$attrs } = props
+  // 文本框内容
   const [val, setVal] = useState(value)
-  // input.type
-  const [type, setType] = useState('password')
-  // SvgIcon.iconName
-  const [icon, setIcon] = useState('#eye-invisible')
+  /** 是否显示密码 */
+  const [showPwd, setShowPwd] = useState(false)
 
-  // 文本内容更新
+  /** 文本框 type */
+  const type = useMemo(() => (showPwd ? 'text' : 'password'), [showPwd])
+  /** 右侧眼睛图标 */
+  const icon = useMemo(() => (showPwd ? '#eye' : '#eye-invisible'), [showPwd])
+
+  /** 文本内容更新 */
   const handleChange = (newVal: Props['value']) => {
     setVal(newVal)
     onChange!(newVal)
   }
 
-  // 点击显示密码
+  /** 点击显示密码 */
   const handleType = () => {
-    setType(type === 'password' ? 'text' : 'password')
-    setIcon(icon === '#eye' ? '#eye-invisible' : '#eye')
+    setShowPwd((state) => !state)
   }
 
   return (
     <Field
-      id={id}
-      name={name}
-      className={className}
-      placeholder={placeholder}
-      disabled={disabled}
-      readonly={readonly}
-      autocomplete={autocomplete}
-      style={style}
-      nativeProps={nativeProps}
+      {...$attrs}
+      value={val}
       type={type}
       onChange={(newVal) => handleChange(newVal)}
-      onFocus={onFocus}
-      onBlur={onBlur}
-      value={val}
-      onPressEnter={onPressEnter}
-      prefix={prefix}
       suffix={(
         <SvgIcon
           iconName={icon}
@@ -68,11 +43,4 @@ const FieldPassword: React.FC<Props> = (props: Props) => {
     />
   )
 }
-
-FieldPassword.propTypes = types
-FieldPassword.defaultProps = {
-  ...defaultProps,
-  prefix: null
-}
-
-export default FieldPassword
+FieldPassword.defaultProps = defaultProps

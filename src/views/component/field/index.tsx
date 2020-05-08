@@ -37,7 +37,8 @@ const FieldDemo: React.FC = () => {
         )}
       />
       <SyntaxHighlighter language="React JSX" style={atomOneDark}>
-        {`<Field
+        {
+`<Field
   value="Enter keywords"
   suffix={(
     <SvgIcon
@@ -46,7 +47,8 @@ const FieldDemo: React.FC = () => {
       style={{ padding: '0 10px' }}
     />
   )}
-/>`}
+/>`
+}
       </SyntaxHighlighter>
       <Field
         value="Enter keywords"
@@ -59,7 +61,8 @@ const FieldDemo: React.FC = () => {
         )}
       />
       <SyntaxHighlighter language="React JSX" style={atomOneDark}>
-        {`<Field
+        {
+`<Field
   value="Enter keywords"
   prefix={(
     <SvgIcon
@@ -68,7 +71,8 @@ const FieldDemo: React.FC = () => {
       style={{ padding: '0 10px' }}
     />
   )}
-/>`}
+/>`
+}
       </SyntaxHighlighter>
       <br />
       <h3>Event</h3>
@@ -80,16 +84,24 @@ const FieldDemo: React.FC = () => {
           <SvgIcon iconName={logo} style={{ padding: '0 10px' }} />
         )}
       />
+      <SyntaxHighlighter language="JavaScript" style={atomOneDark}>
+        {
+`import React, { useState } from 'react'
+const [logo, setLogo] = useState('#art')`
+}
+      </SyntaxHighlighter>
+
       <SyntaxHighlighter language="React JSX" style={atomOneDark}>
-        {`const [logo, setLogo] = useState("#art")
-<Field
+        {
+`<Field
   value="Art Vision"
   onFocus={() => setLogo("#art-color")}
   onBlur={() => setLogo("#art")}
   prefix={(
     <SvgIcon iconName={logo} style={{ padding: '0 10px' }} />
   )}
-/>`}
+/>`
+}
       </SyntaxHighlighter>
     </div>
   )

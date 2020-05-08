@@ -1,36 +1,18 @@
-import React, {
-  useState, useEffect, useMemo
-} from 'react'
-import PropTypes from 'prop-types'
-import stylePropType from 'react-style-proptype'
+import React, { useState, useEffect, useMemo } from 'react'
 import { hasAttr } from '@/utils/common'
+import { Props, defaultProps, styleType } from './props/index'
 import './index.scss'
 
-const ButtonPropType = {
-  className: PropTypes.string,
-  color: PropTypes.string,
-  round: PropTypes.oneOfType([
-    PropTypes.bool,
-    PropTypes.string
-  ]),
-  // 行内样式
-  style: stylePropType,
-  onClick: PropTypes.func,
-  disabled: PropTypes.bool,
-  children: PropTypes.node.isRequired
-}
-type Props = PropTypes.InferProps<typeof ButtonPropType>
-type styleType = typeof stylePropType
-
-const Button:React.FC<Props> = (props: Props) => {
+type mouseEvent = React.MouseEvent<HTMLButtonElement | HTMLAnchorElement, MouseEvent>
+export default function Button(props: Props) {
   const {
     className: newClassName,
     style: lineStyle,
     color,
     round,
     onClick,
-    disabled,
-    children
+    children,
+    ...$attrs
   } = props
 
   // 设置类名
@@ -85,27 +67,23 @@ const Button:React.FC<Props> = (props: Props) => {
     setRound()
   }, [color, round])
 
+  const handlerClick = (e:mouseEvent) => {
+    if (onClick) {
+      onClick!(e)
+    }
+  }
+
   return (
     <button
+      {...$attrs}
       className={_className}
       type="button"
       style={style}
-      disabled={disabled!}
-      onClick={onClick!}
+      onClick={handlerClick}
     >
-      {children}
+      { children }
     </button>
   )
 }
 
-Button.propTypes = ButtonPropType
-Button.defaultProps = {
-  className: '',
-  color: 'blue',
-  round: false,
-  style: {},
-  disabled: false,
-  onClick: () => { }
-}
-
-export default Button
+Button.defaultProps = defaultProps

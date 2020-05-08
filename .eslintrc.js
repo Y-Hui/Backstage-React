@@ -37,7 +37,13 @@ module.exports = {
   'rules': {
     'semi': ['error', 'never'],
     'no-plusplus': 0,
+    'import/prefer-default-export': 0,
+    'import/no-extraneous-dependencies': ['error', {'devDependencies': true, 'optionalDependencies': false, 'peerDependencies': false}],
     'import/no-unresolved': 0,
+    'no-unused-expressions': ['error', {
+      'allowTernary': true,
+      'allowShortCircuit': true
+    }],
     'no-shadow': ['error', { 'allow': ['state'] }],
     'import/extensions': 0,
     'no-underscore-dangle': 0,

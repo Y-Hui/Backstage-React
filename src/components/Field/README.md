@@ -6,21 +6,22 @@ import Field from './index.js'
 // Field.Password 密码框(带有密码文本明文切换)
 ```
 
+### Props
+| Props        | 说明                                                         | 类型      | 默认值 |
+| ------------ | ------------------------------------------------------------ | --------- | ------ |
+| type         | 文本框类型（原生属性）<br />虽为原生属性，但是只允许以下类型：<br />`text` `password` `email` `number` `tel` | string    | text   |
+| placeholder  | 占位文本（原生属性）                                         | string    | -      |
+| value        | 文本内容                                                     | string    | -      |
+| disabled     | 是否禁用文本框                                               | boolean   | -      |
+| readonly     | 是否只读                                                     | boolean   | -      |
+| autocomplete | 自动填充（原生属性）                                         | string    | -      |
+| style        | 设置行内样式                                                 | Object    | -      |
+| prefix       | 左侧插槽                                                     | ReactNode | null   |
+| suffix       | 右侧插槽                                                     | ReactNode | null   |
 
-| Props        | 说明                                                         | 类型      | 默认值       |
-| ------------ | ------------------------------------------------------------ | --------- | ------------ |
-| id           | 设置 id（原生属性）                                          | String    | -            |
-| type         | 文本框类型（原生属性）<br />虽为原生属性，但是只允许以下类型：<br />`text` `password` `email` `number` `tel` | String    | text         |
-| placeholder  | 占位文本（原生属性）                                         | String    | empty string |
-| name         | （原生属性）                                                 | String    | -            |
-| value        | 文本内容                                                     | String    | empty string |
-| disable      | 是否禁用文本框                                               | Boolean   | false        |
-| readonly     | 是否只读                                                     | Boolean   | false        |
-| autocomplete | 自动填充（原生属性）                                         | String    | off          |
-| style        | 设置行内样式                                                 | Object    | empty        |
-| prefix       | 左侧插槽                                                     | ReactNode | null         |
-| suffix       | 右侧插槽                                                     | ReactNode | null         |
-| nativeProps  | 设置其他原生属性<br />以上定义的部分属性基本虽满足使用，但有时你可能需要一些其他原生属性，届时你便可以考虑此属性。 | Object    | empty        |
+> 继承所有 HTMLInputElement 属性。
+
+### Event
 
 | Event        | 说明                   | 返回值           |
 | ------------ | ---------------------- | ---------------- |
@@ -33,4 +34,3 @@ import Field from './index.js'
 
 - 取消 `type`属性
 
-- 取消`suffix`属性

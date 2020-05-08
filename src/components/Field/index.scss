@@ -24,9 +24,10 @@
     height: 100%;
   }
 
-  &__icon {
+  &__slot {
     display: table-cell;
     width: 1px;
+    white-space: nowrap;
     vertical-align: middle;
   }
 

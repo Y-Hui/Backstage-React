@@ -4,13 +4,13 @@
 import Button from '@/components/Button'
 ```
 
-| Props     | 说明         | 类型                        | 默认值 |
-| --------- | ------------ | --------------------------- | ------ |
-| color     | 设置颜色     | string                      | blue   |
-| round     | 设置圆角     | boolean \| string           | 4px    |
-| disabled  | 是否禁用     | boolean                     | false  |
-| className | 设置类名     | string                      | -      |
-| style     | 设置行内样式 | 符合 React Style 的对象类型 | -      |
+| Props     | 说明         | 类型                                                         | 默认值 |
+| --------- | ------------ | ------------------------------------------------------------ | ------ |
+| color     | 按钮颜色     | string                                                       | blue   |
+| round     | 设置圆角     | boolean \| string<br />若 `round=true`则显示为胶囊按钮<br />按钮默认圆角为`4px` | -      |
+| disabled  | 是否禁用     | boolean                                                      | false  |
+| className | 设置类名     | string                                                       | -      |
+| style     | 设置行内样式 | 符合 React Style 的对象类型                                  | -      |
 
 | Event   | 说明     |
 | ------- | -------- |
