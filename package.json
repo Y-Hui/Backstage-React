@@ -136,7 +136,7 @@
     "postcss-safe-parser": "4.0.1",
     "prop-types": "^15.7.2",
     "react-app-polyfill": "^1.0.5",
-    "react-dev-utils": "^10.0.0",
+    "react-dev-utils": "^11.0.4",
     "react-style-proptype": "^3.2.2",
     "react-syntax-highlighter": "^12.2.1",
     "resolve": "1.12.2",
